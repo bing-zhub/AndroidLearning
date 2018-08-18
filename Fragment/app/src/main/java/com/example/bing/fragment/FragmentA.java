@@ -30,6 +30,9 @@ public class FragmentA extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
+        //回退栈的时候 参数会被刷新
         return inflater.inflate(R.layout.fragment_a, container, false);
     }
 
@@ -59,7 +62,11 @@ public class FragmentA extends Fragment {
             public void onClick(View view) {
                 if(view != null){
                     FragmentB fragmentB = new FragmentB();
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragmentB).addToBackStack(null).commit();
+                    Fragment fragment = getFragmentManager().findFragmentByTag("a");
+                    // 先hide 在add 可以避免view被重新绘制. 保存参数
+                    getFragmentManager().beginTransaction().hide(fragment).add(R.id.container, fragmentB).addToBackStack(null).commit();
+                    // replace 会导致view重新绘制 丢失参数
+//                    getFragmentManager().beginTransaction().replace(R.id.container, fragmentB).addToBackStack(null).commit();
                 }
             }
         });

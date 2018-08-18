@@ -17,7 +17,7 @@ public class ContainerActivity extends AppCompatActivity {
 
         mFragA = FragmentA.newInstance("Hello");
 
-        getFragmentManager().beginTransaction().add(R.id.container, mFragA).commitAllowingStateLoss();
+        getFragmentManager().beginTransaction().add(R.id.container, mFragA, "a").commitAllowingStateLoss();
 
 
     }
