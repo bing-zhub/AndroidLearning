@@ -1,17 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.bing.fragment.FragmentA"
-    android:layout_gravity="center">
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tv1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Fragment A"
         android:textSize="40dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnChg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变参数" />
+    <Button
+        android:text="切换到B"
+        android:id="@+id/btnToB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

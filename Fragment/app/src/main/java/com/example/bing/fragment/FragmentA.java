@@ -1,19 +1,20 @@
 package com.example.bing.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 public class FragmentA extends Fragment {
 
     private TextView mTextView;
+    private Button btnChgToB;
+    private Button btnChgPara;
 
 
     // activity 向 Fragment 传参
@@ -39,10 +40,29 @@ public class FragmentA extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mTextView = view.findViewById(R.id.tv1);
+        btnChgPara = view.findViewById(R.id.btnChg);
+        btnChgToB = view.findViewById(R.id.btnToB);
 
         if(getArguments()!=null){
             mTextView.setText(getArguments().getString("title"));
         }
+
+        btnChgPara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTextView.setText("World");
+            }
+        });
+
+        btnChgToB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view != null){
+                    FragmentB fragmentB = new FragmentB();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragmentB).addToBackStack(null).commit();
+                }
+            }
+        });
     }
 
 
