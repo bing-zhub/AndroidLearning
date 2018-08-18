@@ -1,5 +1,6 @@
 package com.example.bing.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.Nullable;
@@ -16,7 +17,12 @@ public class FragmentA extends Fragment {
     private Button btnChgToB;
     private Button btnChgPara;
     private Button btnMess;
+    private IonMessageClick listener;
 
+
+    public interface IonMessageClick{
+        void onClick(String text);
+    }
 
     // activity 向 Fragment 传参
     public static FragmentA newInstance(String title){
@@ -25,6 +31,12 @@ public class FragmentA extends Fragment {
         bundle.putString("title",title);
         fragmentA.setArguments(bundle);
         return fragmentA;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        listener = (IonMessageClick)context;
     }
 
     @Override
@@ -76,7 +88,8 @@ public class FragmentA extends Fragment {
         btnMess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ContainerActivity)getActivity()).setData("Hello");
+//                ((ContainerActivity)getActivity()).setData("Hello");
+                listener.onClick("Hello");
             }
         });
     }
