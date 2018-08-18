@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.bing.fragment.MainActivity">
 
+    <TextView
+        android:id="@+id/target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="container text"
+        android:textSize="40sp"/>
+
     <FrameLayout
+        android:layout_below="@+id/target"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

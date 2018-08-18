@@ -15,6 +15,7 @@ public class FragmentA extends Fragment {
     private TextView mTextView;
     private Button btnChgToB;
     private Button btnChgPara;
+    private Button btnMess;
 
 
     // activity 向 Fragment 传参
@@ -45,6 +46,7 @@ public class FragmentA extends Fragment {
         mTextView = view.findViewById(R.id.tv1);
         btnChgPara = view.findViewById(R.id.btnChg);
         btnChgToB = view.findViewById(R.id.btnToB);
+        btnMess = view.findViewById(R.id.mess);
 
         if(getArguments()!=null){
             mTextView.setText(getArguments().getString("title"));
@@ -68,6 +70,13 @@ public class FragmentA extends Fragment {
                     // replace 会导致view重新绘制 丢失参数
 //                    getFragmentManager().beginTransaction().replace(R.id.container, fragmentB).addToBackStack(null).commit();
                 }
+            }
+        });
+
+        btnMess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((ContainerActivity)getActivity()).setData("Hello");
             }
         });
     }
