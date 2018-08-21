@@ -57,5 +57,17 @@ mAct 当执行onAttach的时候 把context强转为Activity
 ```java
 getArguments().getString("text");
 ```
+## Fragment回退栈
 
+返回上一个Fragment时, View会被重建, 导致许多参数被重写.
+
+解决方法: 先隐藏 再添加
+
+``` java
+getFragmentManager().beginTransaction().hide(OldFragment).add(R.id.fragmentId, newFragment).addToBackStack(null).commit();
+```
+
+其中oldFragment通过`getFragment().findFragmentByTag`等方法获取.
+
+newFragment通过new关键字实现.
 
