@@ -46,11 +46,11 @@ mAct 当执行onAttach的时候 把context强转为Activity
 
 ```java
     public static Afragment newInstance(String text){
-    Afragment f = new Afragment();
-    Bundle bundle = new Bundle();
-    bundle.putString("text", text);
-    f.setArguments(bundle);
-    return f;
+        Afragment f = new Afragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("text", text);
+        f.setArguments(bundle);
+        return f;
     }
 ```
 
@@ -59,7 +59,7 @@ getArguments().getString("text");
 ```
 ## Fragment回退栈
 
-返回上一个Fragment时, View会被重建, 导致许多参数被重写.
+返回上一个Fragment时, View会被重建, 导致许多参数被重写. 
 
 解决方法: 先隐藏 再添加
 
@@ -69,5 +69,18 @@ getFragmentManager().beginTransaction().hide(OldFragment).add(R.id.fragmentId, n
 
 其中oldFragment通过`getFragment().findFragmentByTag`等方法获取.
 
-newFragment通过new关键字实现.
+newFragment通过new关键字实例化.
+
+## Fragment和Activity通信
+
+**可行不推荐**
+mActivity含有SetData方法
+在Fragment中调用getActivity 并将其强转成mActivity 调用Activity中的SetData方法即可传参
+`((mActivity)getActivity).setData()`
+
+通过回调接口实现. 具体看源码..(不太理解)
+
+1.在Fragment里声明接口
+2.在Activity中实现接口
+3.在Fragment onAttch()中为listener赋值
 
