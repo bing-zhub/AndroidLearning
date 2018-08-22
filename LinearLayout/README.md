@@ -19,9 +19,12 @@ android:orentation 方向 vertical horizontal
 
 ### 备注
 
+所有ui空间均继承自View
+
 layout_width, layout_height  一般使用dp
 
-gravity 内部元素排列方式
-
+gravity 内部元素排列方式: center 中心 horizontal center 水平居中 
+  
+layout_weight 平分剩余父空间  如果单纯平分 设置为0dp
 
 
