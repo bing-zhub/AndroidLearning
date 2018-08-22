@@ -17,5 +17,11 @@ android:layout_padding 内边距: 距离内部元素的距离
 
 android:orentation 方向 vertical horizontal
 
+### 备注
+
+layout_width, layout_height  一般使用dp
+
+gravity 内部元素排列方式
+
 
 
