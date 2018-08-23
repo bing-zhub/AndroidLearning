@@ -19,4 +19,43 @@
         android:layout_below="@id/view_1"
         />
 
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/view_2"
+        android:background="#0066FF"
+        android:padding="15dp"
+        >
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="#FF0033"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:padding="15dp"
+            >
+
+            <View
+                android:id="@+id/view_3"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="#FF9900"
+                />
+
+            <View
+                android:id="@+id/view_4"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="#ff9900"
+                android:layout_toRightOf="@id/view_3"
+                android:layout_marginLeft="15dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
 </RelativeLayout>
