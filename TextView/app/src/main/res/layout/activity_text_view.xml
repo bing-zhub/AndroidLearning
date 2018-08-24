@@ -62,6 +62,20 @@
         android:textColor="#FF0000"
         android:textSize="50sp"/>
 
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World! Hello World! Hello World!"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="#FF0000"
+        android:textSize="50sp"/>
+
 
 
 
