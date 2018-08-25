@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ButtonActivity">
+    android:padding="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_1"
+        android:text="Button 1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#FF00FF"
+        android:background="#000000" />
+
+    <Button
+        android:id="@+id/btn_2"
+        android:text="Button 2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#FF00FF"
+        android:background="@drawable/bg_btn_2"
+        android:layout_below="@id/btn_1"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
