@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mBtnTextView;
     private Button mBtnButton;
+    private Button mBtnEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         mBtnTextView = (Button)findViewById(R.id.btn_textView);
         mBtnButton = (Button)findViewById(R.id.btn_button);
+        mBtnEditText = (Button)findViewById(R.id.btn_editText);
 
         mBtnTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mBtnEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditTextActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
 
 }
