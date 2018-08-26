@@ -48,4 +48,15 @@
         android:background="@drawable/bg_btn_4"
         android:onClick="showToast"/>
 
+    <TextView
+        android:layout_marginTop="20dp"
+        android:background="#FF00FF"
+        android:text="Hello World!"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/tv8"
+        android:layout_below="@id/btn_4"/>
+
 </RelativeLayout>
