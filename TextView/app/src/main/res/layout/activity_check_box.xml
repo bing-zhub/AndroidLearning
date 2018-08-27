@@ -49,4 +49,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/cb_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your interests"
+            android:textSize="20sp"/>
+
+        <CheckBox
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/tv9"
+            android:id="@+id/cb_5"
+            android:text="Coding"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/bg_checkbox"
+            android:paddingLeft="10dp"
+            />
+
+        <CheckBox
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/cb_1"
+            android:id="@+id/cb_6"
+            android:text="Cooking"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
 </RelativeLayout>
