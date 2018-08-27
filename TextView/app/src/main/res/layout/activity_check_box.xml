@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckBoxActivity"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/tv9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="What kind of language do you master?"/>
+
+    <CheckBox
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tv9"
+        android:id="@+id/cb_1"
+        android:text="Java"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/cb_1"
+        android:id="@+id/cb_2"
+        android:text="C"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/cb_2"
+        android:id="@+id/cb_3"
+        android:text="JavaScript"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/cb_3"
+        android:id="@+id/cb_4"
+        android:text="Python"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
