@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnTextView;
     private Button mBtnButton;
     private Button mBtnEditText;
+    private Button mBtnRadioButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,33 +22,44 @@ public class MainActivity extends AppCompatActivity {
         mBtnTextView = (Button)findViewById(R.id.btn_textView);
         mBtnButton = (Button)findViewById(R.id.btn_button);
         mBtnEditText = (Button)findViewById(R.id.btn_editText);
+        mBtnRadioButton = (Button)findViewById(R.id.btn_radioButton);
 
-        mBtnTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TextViewActivity.class);
-                startActivity(intent);
+       setListener();
+
+    }
+
+    private void setListener(){
+        OnClick onClick = new OnClick();
+        mBtnRadioButton.setOnClickListener(onClick);
+        mBtnEditText.setOnClickListener(onClick);
+        mBtnButton.setOnClickListener(onClick);
+        mBtnTextView.setOnClickListener(onClick);
+    }
+
+    private class OnClick implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v){
+            Intent intent = null;
+            switch (v.getId()){
+                case R.id.btn_textView:
+                    intent = new Intent(MainActivity.this, TextViewActivity.class);
+                    break;
+
+                case R.id.btn_button:intent = new Intent(MainActivity.this, ButtonActivity.class);
+                    break;
+
+                case R.id.btn_editText:
+                    intent = new Intent(MainActivity.this, EditTextActivity.class);
+                    break;
+
+                case R.id.btn_radioButton:
+                    intent = new Intent(MainActivity.this, RadioButtonActivity.class);
+                    break;
+
             }
-        });
-
-        mBtnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtnEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EditTextActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-
+            startActivity(intent);
+        }
 
     }
 
