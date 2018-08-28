@@ -1,6 +1,7 @@
 package com.example.bing.textview;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnEditText;
     private Button mBtnRadioButton;
     private Button mBtnCheckBox;
+    private Button mBtnImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnEditText = (Button)findViewById(R.id.btn_editText);
         mBtnRadioButton = (Button)findViewById(R.id.btn_radioButton);
         mBtnCheckBox = (Button)findViewById(R.id.btn_checkBox);
+        mBtnImageView = (Button)findViewById(R.id.btn_imageView);
 
        setListener();
 
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnButton.setOnClickListener(onClick);
         mBtnTextView.setOnClickListener(onClick);
         mBtnCheckBox.setOnClickListener(onClick);
+        mBtnImageView.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -62,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_checkBox:
                     intent = new Intent(MainActivity.this, CheckBoxActivity.class);
                     break;
+                case R.id.btn_imageView:
+                    intent = new Intent(MainActivity.this, ImageViewActivity.class);
             }
             startActivity(intent);
         }
