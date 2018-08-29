@@ -1,12 +1,12 @@
 package com.example.bing.textview;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.bing.textview.listView.ListViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_imageView:
                     intent = new Intent(MainActivity.this, ImageViewActivity.class);
-                    case R.id.btn_listView;
+                case R.id.btn_listView:
                     intent = new Intent(MainActivity.this, ListViewActivity.class);
                     break;
             }
