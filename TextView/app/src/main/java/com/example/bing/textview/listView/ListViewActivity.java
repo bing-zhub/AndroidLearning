@@ -17,6 +17,6 @@ public class ListViewActivity extends AppCompatActivity {
 
         mListView = (ListView)findViewById(R.id.lv_1);
 
-        mListView.setAdapter();
+        mListView.setAdapter(new myListAdapter(ListViewActivity.this));
     }
 }

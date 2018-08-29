@@ -58,8 +58,10 @@ public class myListAdapter extends BaseAdapter {
 
 
         //给控件赋值
+        holder.tv_title.setText("this is title");
+        holder.tv_content.setText("this is content");
+        holder.tv_time.setText("this is time");
 
-        
         return convertView;
     }
 }
