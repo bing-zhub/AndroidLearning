@@ -18,6 +18,6 @@ public class ImageViewActivity extends AppCompatActivity {
 
         mIv4 = (ImageView)findViewById(R.id.iv_4);
 
-        Glide.with(this).load("").into(mIv4);
+        Glide.with(this).load("https://github.com/bumptech/glide/raw/master/static/glide_logo.png").into(mIv4);
     }
 }
