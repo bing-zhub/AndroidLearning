@@ -29,7 +29,7 @@ public class myGridViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return 24;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class myGridViewAdapter extends BaseAdapter {
         }
 
         viewHolder.mTextView.setText("花");
-        Glide.with(mContext).load("https://avatars2.githubusercontent.com/u/39323503?s=460&v=4").into(viewHolder.mImageView);
+        Glide.with(mContext).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535635147593&di=161cf95bdef70a3172081defba2f9435&imgtype=0&src=http%3A%2F%2Fis2.mzstatic.com%2Fimage%2Fthumb%2FPurple1%2Fv4%2Feb%2F5c%2F45%2Feb5c4505-41a3-67c6-3785-c14ad4083f5e%2Fmzl.kwwfpsun.png%2F0x0ss-30.jpg").into(viewHolder.mImageView);
         return convertView;
     }
 }
