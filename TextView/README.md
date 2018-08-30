@@ -66,11 +66,18 @@
 保持宽高比缩放 直至完全覆盖空间 裁剪显示
 
 # 列表视图ListView
-
+AppCompatActivity继承自Activity 默认带有标题栏等
 ## 常用属性
 
 ## Adapter接口
 
 ## Demo演示
 
+# 网格视图 GridView
+
+## 常用属性
+
+## Adapter接口
+
+## Demo演示
 

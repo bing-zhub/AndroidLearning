@@ -24,7 +24,8 @@
         <activity android:name=".RadioButtonActivity" />
         <activity android:name=".CheckBoxActivity" />
         <activity android:name=".ImageViewActivity" />
-        <activity android:name=".listView.ListViewActivity"></activity>
+        <activity android:name=".listView.ListViewActivity" />
+        <activity android:name=".gridView.GridViewActivity"></activity>
     </application>
 
 </manifest>
