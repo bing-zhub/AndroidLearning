@@ -62,7 +62,7 @@ public class myListAdapter extends BaseAdapter {
         holder.tv_title.setText("this is title");
         holder.tv_content.setText("this is content");
         holder.tv_time.setText("this is time");
-        Glide.with(mContext).load("https://github.com/bumptech/glide/raw/master/static/glide_logo.png").into(holder.iv);
+        Glide.with(mContext).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535635147593&di=161cf95bdef70a3172081defba2f9435&imgtype=0&src=http%3A%2F%2Fis2.mzstatic.com%2Fimage%2Fthumb%2FPurple1%2Fv4%2Feb%2F5c%2F45%2Feb5c4505-41a3-67c6-3785-c14ad4083f5e%2Fmzl.kwwfpsun.png%2F0x0ss-30.jpg").into(holder.iv);
 
         return convertView;
     }

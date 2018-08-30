@@ -8,9 +8,11 @@
 
     <ListView
         android:id="@+id/lv_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@drawable/list_item"
+        android:divider="@color/colorGreen"
+        android:dividerHeight="10dp">
     </ListView>
 
 </LinearLayout>
