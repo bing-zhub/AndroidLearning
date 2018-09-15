@@ -81,3 +81,9 @@ AppCompatActivity继承自Activity 默认带有标题栏等
 
 ## Demo演示
 
+# 滚动视图ScrollView
+
+## 垂直滚动: ScrollView
+
+## 水平滚动: HorizontalScrollView
+
