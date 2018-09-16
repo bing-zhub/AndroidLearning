@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         mBtnGridView = (Button)findViewById(R.id.btn_gridView);
 
        setListener();
-
     }
 
     private void setListener(){

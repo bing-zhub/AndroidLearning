@@ -89,3 +89,9 @@ ScrollView中只能有一个元素
 
 ## 水平滚动: HorizontalScrollView
 
+# RecyclerView(1)
+
+RecyclerView能够灵活实现大数据集的展示, 视图的复用管理比ListView更好, 能够显示列表/网格/瀑布流等形式, 且不同的ViewHolder能够实现item多元化的功能.
+
+但是使用起来会稍微麻烦一点, 并且没有类似ListView的onItemClickListener监听事件, 需要开发者自己实现.
+
