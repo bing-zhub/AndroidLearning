@@ -3,9 +3,11 @@ package com.example.bing.textview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.bing.textview.RecyclerView.RecyclerViewActivity;
 import com.example.bing.textview.gridView.GridViewActivity;
 import com.example.bing.textview.listView.ListViewActivity;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnImageView;
     private Button mBtnListView;
     private Button mBtnGridView;
+    private Button mBtnRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnImageView = (Button)findViewById(R.id.btn_imageView);
         mBtnListView = (Button)findViewById(R.id.btn_listView);
         mBtnGridView = (Button)findViewById(R.id.btn_gridView);
+        mBtnRecyclerView = findViewById(R.id.btn_recyclerView);
 
        setListener();
     }
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnImageView.setOnClickListener(onClick);
         mBtnListView.setOnClickListener(onClick);
         mBtnGridView.setOnClickListener(onClick);
+        mBtnRecyclerView.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -59,10 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_textView:
                     intent = new Intent(MainActivity.this, TextViewActivity.class);
                     break;
-
                 case R.id.btn_button:intent = new Intent(MainActivity.this, ButtonActivity.class);
                     break;
-
                 case R.id.btn_editText:
                     intent = new Intent(MainActivity.this, EditTextActivity.class);
                     break;
@@ -75,11 +78,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_imageView:
                     intent = new Intent(MainActivity.this, ImageViewActivity.class);
+                    break;
                 case R.id.btn_listView:
                     intent = new Intent(MainActivity.this, ListViewActivity.class);
                     break;
                 case R.id.btn_gridView:
                     intent = new Intent(MainActivity.this, GridViewActivity.class);
+                    break;
+                case R.id.btn_recyclerView:
+                    intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
                     break;
             }
             startActivity(intent);

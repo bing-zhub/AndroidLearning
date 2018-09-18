@@ -18,6 +18,6 @@ public class LinearRecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_linear_recycler_view);
         mRvMain = findViewById(R.id.rv_main);
         mRvMain.setLayoutManager(new LinearLayoutManager(LinearRecyclerViewActivity.this));
-
+        mRvMain.setAdapter(new LinearAdapter(LinearRecyclerViewActivity.this));
     }
 }
