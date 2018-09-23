@@ -21,7 +21,7 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     @NonNull
     @Override
     public LinearAdapter.LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_list_item, parent, false));
+        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_linear_item, parent, false));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 100;
     }
 
     class LinearViewHolder extends RecyclerView.ViewHolder {
