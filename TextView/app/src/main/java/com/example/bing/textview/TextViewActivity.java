@@ -10,7 +10,6 @@ public class TextViewActivity extends AppCompatActivity {
 
     private TextView textView4,textView5,textView6;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

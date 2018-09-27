@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bing.textview.R;
 
@@ -25,13 +26,19 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinearAdapter.LinearViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LinearAdapter.LinearViewHolder holder, final int position) {
         holder.textView.setText("Hello World");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "click.."+position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 100;
+        return 10;
     }
 
     class LinearViewHolder extends RecyclerView.ViewHolder {
