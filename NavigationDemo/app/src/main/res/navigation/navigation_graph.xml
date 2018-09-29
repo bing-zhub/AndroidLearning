@@ -8,5 +8,35 @@
         android:id="@+id/mainFragment"
         android:name="com.example.bing.navigationdemo.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/to_fragment1"
+            app:destination="@id/fragment1" />
+        <action
+            android:id="@+id/to_fragment2"
+            app:destination="@id/fragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.bing.navigationdemo.fragment1"
+        android:label="fragment_fragment1"
+        tools:layout="@layout/fragment_fragment1" >
+        <argument
+            android:name="string"
+            app:argType="string"
+            android:defaultValue=" " />
+        <action
+            android:id="@+id/to_fragment3"
+            app:destination="@id/fragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.bing.navigationdemo.fragment2"
+        android:label="fragment_fragment2"
+        tools:layout="@layout/fragment_fragment2" />
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.example.bing.navigationdemo.fragment3"
+        android:label="fragment_fragment3"
+        tools:layout="@layout/fragment_fragment3" />
 </navigation>
