@@ -3,12 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerView.RecyclerViewActivity">
+    tools:context=".RecyclerView.RecyclerViewActivity"
+    android:orientation="vertical">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_linear"
         android:text="列表视图"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_hor"
+        android:text="水平滚动"/>
 
 </LinearLayout>
