@@ -26,9 +26,9 @@
         <activity android:name=".ImageViewActivity" />
         <activity android:name=".listView.ListViewActivity" />
         <activity android:name=".gridView.GridViewActivity" />
-        <activity android:name=".RecyclerView.RecyclerViewActivity" />
-        <activity android:name=".RecyclerView.LinearRecyclerViewActivity" />
-        <activity android:name=".RecyclerView.HorRecyckerViewActivity"></activity>
+        <activity android:name=".recyclerView.RecyclerViewActivity" />
+        <activity android:name=".recyclerView.LinearRecyclerViewActivity" />
+        <activity android:name=".recyclerView.HorRecyclerViewActivity"></activity>
     </application>
 
 </manifest>

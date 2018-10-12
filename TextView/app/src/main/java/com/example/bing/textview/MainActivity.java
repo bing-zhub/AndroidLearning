@@ -3,11 +3,10 @@ package com.example.bing.textview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.bing.textview.RecyclerView.RecyclerViewActivity;
+import com.example.bing.textview.recyclerView.RecyclerViewActivity;
 import com.example.bing.textview.gridView.GridViewActivity;
 import com.example.bing.textview.listView.ListViewActivity;
 

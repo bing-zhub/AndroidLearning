@@ -1,4 +1,4 @@
-package com.example.bing.textview.RecyclerView;
+package com.example.bing.textview.recyclerView;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +30,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         mBtnHor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecyclerViewActivity.this, HorRecyckerViewActivity.class);
+                Intent intent = new Intent(RecyclerViewActivity.this, HorRecyclerViewActivity.class);
                 startActivity(intent);
             }
         });

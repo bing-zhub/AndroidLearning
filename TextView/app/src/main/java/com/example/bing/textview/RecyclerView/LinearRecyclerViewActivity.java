@@ -1,4 +1,4 @@
-package com.example.bing.textview.RecyclerView;
+package com.example.bing.textview.recyclerView;
 
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;

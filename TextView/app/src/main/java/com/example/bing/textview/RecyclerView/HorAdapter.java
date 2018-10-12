@@ -11,22 +11,22 @@ import android.widget.Toast;
 
 import com.example.bing.textview.R;
 
-public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder> {
+public class HorAdapter extends RecyclerView.Adapter<HorAdapter.LinearViewHolder> {
 
     private Context mContext;
 
-    public LinearAdapter(Context mContext) {
+    public HorAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
     @NonNull
     @Override
-    public LinearAdapter.LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_linear_item, parent, false));
+    public HorAdapter.LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(R.layout.layout_hor_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinearAdapter.LinearViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull HorAdapter.LinearViewHolder holder, final int position) {
         holder.textView.setText("Hello World");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
