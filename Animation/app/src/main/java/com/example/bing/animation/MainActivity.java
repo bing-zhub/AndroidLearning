@@ -21,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void fade(View view){
         if(flag){
-            bartImageView.animate().alpha(0).setDuration(2000);
-            homerImageView.animate().alpha(1).setDuration(2000);
+//            bartImageView.animate().translationYBy(-1000).setDuration(1000);
+//            bartImageView.animate().alpha(0).setDuration(2000);
+//            homerImageView.animate().alpha(1).setDuration(2000);
             flag = false;
+//            bartImageView.animate().rotation(18000000).setDuration(100000); //让辛普森旋转
         }else{
-            homerImageView.animate().alpha(0).setDuration(2000);
-            bartImageView.animate().alpha(1).setDuration(2000);
+//            bartImageView.animate().translationYBy(1000).setDuration(1000);
+//            homerImageView.animate().alpha(0).setDuration(2000);
+//            bartImageView.animate().alpha(1).setDuration(2000);
+//            bartImageView.animate().rotation(-1800).setDuration(1000);
             flag = true;
         }
     }
