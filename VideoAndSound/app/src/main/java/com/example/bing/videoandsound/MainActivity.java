@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         VideoView videoView;
         videoView = findViewById(R.id.videoView);
         videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.demovideo);
-        MediaController mediaController = new MediaController(this);
-        mediaController.setAnchorView(videoView);
-        videoView.setMediaController(mediaController);
+//        MediaController mediaController = new MediaController(this);
+//        mediaController.setAnchorView(videoView);
+//        videoView.setMediaController(mediaController);
         videoView.start();
     }
 }
