@@ -15,4 +15,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="241dp"
+        android:layout_height="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="307dp" />
+
 </android.support.constraint.ConstraintLayout>
