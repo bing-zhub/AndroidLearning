@@ -8,12 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class SoundActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
     Button btn;
     boolean flag = true;
-    SeekBar volumeSeekBar;
+    SeekBar volumeSeekBar, scrubSeekBar;
     AudioManager audioManager;
 
     @Override
@@ -21,10 +24,13 @@ public class SoundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound);
         volumeSeekBar = findViewById(R.id.volumeSeekBar);
+        scrubSeekBar = findViewById(R.id.scrubSeekBar);
         mediaPlayer = MediaPlayer.create (this, R.raw.demosound);
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         volumeSeekBar.setMax(maxVolume);
+        volumeSeekBar.setProgress(currentVolume);
         btn = findViewById(R.id.btn);
         btn.setText("播放");
 
@@ -59,6 +65,31 @@ public class SoundActivity extends AppCompatActivity {
 
             }
         });
+
+        scrubSeekBar.setMax(mediaPlayer.getDuration() );
+        scrubSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                mediaPlayer.seekTo(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                scrubSeekBar.setProgress(mediaPlayer.getCurrentPosition());
+            }
+        },0,300);
 
 
     }
