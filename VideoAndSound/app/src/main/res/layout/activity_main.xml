@@ -27,4 +27,11 @@
         android:text="timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_hide_show"
+        android:gravity="center"
+        android:text="show_hide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

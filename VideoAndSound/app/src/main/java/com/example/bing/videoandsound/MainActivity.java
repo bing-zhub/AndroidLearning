@@ -10,7 +10,7 @@ import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnVideo, btnSound, btnTimer;
+    Button btnVideo, btnSound, btnTimer, btnHideShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btnSound = findViewById(R.id.btn_sound);
         btnVideo = findViewById(R.id.btn_video);
         btnTimer = findViewById(R.id.btn_timer);
-
+        btnHideShow = findViewById(R.id.btn_hide_show);
 
         btnVideo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TimerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHideShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ShowAndHide.class);
                 startActivity(intent);
             }
         });
