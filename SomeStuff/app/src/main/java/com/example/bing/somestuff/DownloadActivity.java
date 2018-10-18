@@ -1,14 +1,16 @@
 package com.example.bing.somestuff;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
@@ -16,9 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DownloadActivity extends AppCompatActivity {
 
-
+    ImageView imageView;
+    TextView textView;
     //pass in a string and pass out a string!
-    public class DownloadTask extends AsyncTask<String, Void, String> {
+    public class DownloadWebText extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -39,7 +42,27 @@ public class DownloadActivity extends AppCompatActivity {
 
                 return result;
             } catch (Exception e) {
+                e.printStackTrace();
                 return "Failed";
+            }
+        }
+    }
+
+    public class DownloadWebImage extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            URL url;
+            try{
+                url  = new URL(strings[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+                InputStream in = connection.getInputStream();
+                Bitmap mBitmap = BitmapFactory.decodeStream(in);
+                return mBitmap;
+            }catch (Exception e){
+                e.printStackTrace();
+                return  null;
             }
         }
     }
@@ -49,15 +72,26 @@ public class DownloadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
 
-        DownloadTask task = new DownloadTask();
+        imageView = findViewById(R.id.imageView);
+        textView = findViewById(R.id.textView);
+
+
+        DownloadWebText task = new DownloadWebText();
+        DownloadWebImage task2 = new DownloadWebImage();
         String result = "";
+        Bitmap bitmap = null;
         try {
-            result =  task.execute("http://www.baidu.com").get();
+            result =  task.execute("https://www.netdom.me").get();
+            bitmap = task2.execute("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png").get();
+            imageView.setImageBitmap(bitmap);
+            textView.setText(result);
             Log.i("info",result);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
     }
 }
