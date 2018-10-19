@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public static void main(String[] args) {
+        String text = "head body foot";
+        Pattern p = Pattern.compile("head(.*?)foot");
+        Matcher m = p.matcher(text);
+        while(m.find())
+            System.out.println(m.group(1));
     }
 
 
