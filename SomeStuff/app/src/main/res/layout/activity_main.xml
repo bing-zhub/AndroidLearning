@@ -23,4 +23,11 @@
         android:textAllCaps="false"
         android:text="Download Web Content"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_parse_json"
+        android:textAllCaps="false"
+        android:text="Parse Json Data"/>
+
 </LinearLayout>
