@@ -4,6 +4,12 @@ package com.example.bing.somestuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,19 +21,31 @@ import java.util.regex.Pattern;
 
 public class JsonParseActivity extends AppCompatActivity {
 
+    TextView txtTitle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_parse);
 
+        txtTitle = findViewById(R.id.txtTitle);
+
+
         DownloadJsonData jsonData = new DownloadJsonData();
-        jsonData.execute("https://www.v2ex.com/api/topics/hot.json");
+        jsonData.execute("https://gank.io/api/today");
         try {
             String result = jsonData.get();
-            System.out.println(result);
+            JSONObject json = new JSONObject(result);
+            JSONObject results = new JSONObject(json.getString("results"));
+            JSONArray recommends = results.getJSONArray("福利");
+            JSONObject recommend = new JSONObject(recommends.get(0).toString());
+            txtTitle.setText(recommend.getString("desc"));
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +68,7 @@ public class JsonParseActivity extends AppCompatActivity {
                     stringBuilder.append((char)data);
                 }
                 result = stringBuilder.toString();
-                result = unicodeToString(result);
+                result = unicodeToString(result) ;
                 return result;
             } catch (Exception e) {
                 e.printStackTrace();
