@@ -8,6 +8,9 @@ import android.util.Log;
 
 import com.airbnb.lottie.animation.content.Content;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class SharedPreferenceActivity extends AppCompatActivity {
 
     @Override
@@ -16,9 +19,26 @@ public class SharedPreferenceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shared_preference);
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.bing.somestuff", Context.MODE_PRIVATE);
-//        sharedPreferences.edit().putString("username", "admin").apply();
 
-        String username = sharedPreferences.getString("username","");
-        Log.i("SharePre",username);
+        ArrayList<String> languages = new ArrayList<String>();
+        languages.add("C");
+        languages.add("C++");
+        languages.add("Python");
+        languages.add("Java");
+        try {
+            sharedPreferences.edit().putString("languages", ObjectSerializer.serialize(languages)).apply();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            ArrayList<String> newLanguages = (ArrayList<String>) ObjectSerializer.deserialize(sharedPreferences.getString("languages",ObjectSerializer.serialize(new ArrayList<String>())));
+            Log.i("SharePre", newLanguages.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
