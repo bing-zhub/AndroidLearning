@@ -30,4 +30,11 @@
         android:textAllCaps="false"
         android:text="Parse Json Data"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_shared_preference"
+        android:textAllCaps="false"
+        android:text="Shared Preference"/>
+
 </LinearLayout>

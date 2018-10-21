@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".LottieActivity" />
         <activity android:name=".DownloadActivity" />
-        <activity android:name=".JsonParseActivity"></activity>
+        <activity android:name=".JsonParseActivity" />
+        <activity android:name=".SharedPreferenceActivity"></activity>
     </application>
 
 </manifest>

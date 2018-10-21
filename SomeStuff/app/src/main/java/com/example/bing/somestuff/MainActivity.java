@@ -1,6 +1,7 @@
 package com.example.bing.somestuff;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLottie, btnDownload, btnParseJsonData;
+    Button btnLottie, btnDownload, btnParseJsonData, btnSharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnLottie = findViewById(R.id.btn_lottie);
         btnDownload = findViewById(R.id.btn_download);
         btnParseJsonData = findViewById(R.id.btn_parse_json);
+        btnSharedPreference = findViewById(R.id.btn_shared_preference);
 
         btnLottie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, JsonParseActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSharedPreference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SharedPreferenceActivity.class);
                 startActivity(intent);
             }
         });
