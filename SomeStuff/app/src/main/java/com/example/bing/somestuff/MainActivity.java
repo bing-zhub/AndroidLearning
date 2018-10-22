@@ -1,10 +1,8 @@
 package com.example.bing.somestuff;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLottie, btnDownload, btnParseJsonData, btnSharedPreference, btnMenu;
+    Button btnLottie, btnDownload, btnParseJsonData, btnSharedPreference, btnMenu, btnAlert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btnParseJsonData = findViewById(R.id.btn_parse_json);
         btnSharedPreference = findViewById(R.id.btn_shared_preference);
         btnMenu = findViewById(R.id.btn_menu);
+        btnAlert = findViewById(R.id.btn_alert);
 
         btnLottie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AlertActivity.class);
                 startActivity(intent);
             }
         });
