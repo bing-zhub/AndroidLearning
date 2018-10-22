@@ -37,4 +37,11 @@
         android:textAllCaps="false"
         android:text="Shared Preference"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_menu"
+        android:textAllCaps="false"
+        android:text="Menu"/>
+
 </LinearLayout>
