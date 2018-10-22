@@ -24,12 +24,13 @@ public class MenuActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.settings:
                 Toast.makeText(MenuActivity.this, "Click Settings button", Toast.LENGTH_SHORT).show();
-                break;
+                return true;
             case R.id.help:
                 Toast.makeText(MenuActivity.this, "Click Help button", Toast.LENGTH_SHORT).show();
-                break;
+                return true;
+            default:
+                return false;
         }
-        return true;
     }
 
     @Override
