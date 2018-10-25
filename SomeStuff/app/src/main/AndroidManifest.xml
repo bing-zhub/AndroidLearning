@@ -25,7 +25,8 @@
         <activity android:name=".SharedPreferenceActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".AlertActivity" />
-        <activity android:name=".SqliteActivity"></activity>
+        <activity android:name=".SqliteActivity" />
+        <activity android:name=".WebviewActivity"/>
     </application>
 
 </manifest>

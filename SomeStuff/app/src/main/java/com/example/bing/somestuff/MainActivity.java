@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLottie, btnDownload, btnParseJsonData, btnSharedPreference, btnMenu, btnAlert, btnSqlite;
+    Button btnLottie, btnDownload, btnParseJsonData, btnSharedPreference, btnMenu, btnAlert, btnSqlite, btnWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btnMenu = findViewById(R.id.btn_menu);
         btnAlert = findViewById(R.id.btn_alert);
         btnSqlite = findViewById(R.id.btn_sqlite);
+        btnWebview = findViewById(R.id.btn_webview);
 
         btnLottie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SqliteActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnWebview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebviewActivity.class);
                 startActivity(intent);
             }
         });
