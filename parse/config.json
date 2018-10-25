@@ -1,0 +1,7 @@
+{
+  "appId": "pZJJ7iSBoWNcN6sFYFvaFHSVX4RhBpKtk6E1AZti",
+  "masterKey": "X5bmnE9IYdVnWd1Ps7Tn7p6sbEtIIP213JnT3tFx",
+  "appName": "Instagram",
+  "cloud": "./cloud/main",
+  "databaseURI": "mongodb://127.0.0.1:27017/parse"
+}

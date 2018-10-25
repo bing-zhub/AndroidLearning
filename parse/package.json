@@ -1,0 +1,10 @@
+{
+  "name": "instagram",
+  "description": "parse-server for Instagram",
+  "scripts": {
+    "start": "parse-server config.json"
+  },
+  "dependencies": {
+    "parse-server": "^2.0.0"
+  }
+}
