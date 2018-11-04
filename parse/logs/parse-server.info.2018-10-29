@@ -1,0 +1,12 @@
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T13:59:24.836Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T13:59:24.850Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T13:59:28.544Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T13:59:28.551Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T13:59:32.155Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T13:59:32.160Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T13:59:44.793Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T13:59:44.794Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T14:31:10.013Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T14:31:10.014Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-29T14:32:00.350Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-29T14:32:00.350Z"}

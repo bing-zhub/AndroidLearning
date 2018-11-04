@@ -1,0 +1,12 @@
+{"error":{"code":101,"message":"Invalid username/password."},"level":"error","message":"Error generating response. ParseError { code: 101, message: 'Invalid username/password.' }","timestamp":"2018-10-30T02:46:09.205Z"}
+{"code":101,"message":"Invalid username/password.","level":"error","timestamp":"2018-10-30T02:46:09.207Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-30T02:47:03.075Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-30T02:47:03.076Z"}
+{"error":{"code":101,"message":"Invalid username/password."},"level":"error","message":"Error generating response. ParseError { code: 101, message: 'Invalid username/password.' }","timestamp":"2018-10-30T02:47:05.720Z"}
+{"code":101,"message":"Invalid username/password.","level":"error","timestamp":"2018-10-30T02:47:05.720Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-30T03:05:17.970Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-30T03:05:17.971Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-30T03:08:15.747Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-30T03:08:15.747Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-10-30T03:09:14.283Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-10-30T03:09:14.284Z"}

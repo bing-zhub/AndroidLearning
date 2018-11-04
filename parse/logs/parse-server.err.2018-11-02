@@ -1,0 +1,4 @@
+{"error":{"code":201,"message":"password is required"},"level":"error","message":"Error generating response. ParseError { code: 201, message: 'password is required' }","timestamp":"2018-11-02T15:40:27.854Z"}
+{"code":201,"message":"password is required","level":"error","timestamp":"2018-11-02T15:40:27.855Z"}
+{"error":{"code":202,"message":"Account already exists for this username."},"level":"error","message":"Error generating response. ParseError {\n  code: 202,\n  message: 'Account already exists for this username.' }","timestamp":"2018-11-02T15:40:40.838Z"}
+{"code":202,"message":"Account already exists for this username.","level":"error","timestamp":"2018-11-02T15:40:40.838Z"}
