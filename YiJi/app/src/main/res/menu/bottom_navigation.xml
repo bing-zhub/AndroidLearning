@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="记账"
+        android:id="@+id/pen"
+        android:icon="@drawable/pen" />
+
+    <item
+        android:title="统计"
+        android:id="@+id/chart"
+        android:icon="@drawable/chart"/>
+</menu>

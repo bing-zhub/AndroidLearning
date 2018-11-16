@@ -1,0 +1,20 @@
+<resources>
+    <style name="Base.AppTheme" parent="Theme.AppCompat">
+        <!--去掉原来的ActionBar-->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- API Level 22 编译要去点android -->
+        <item name="windowNoTitle">true</item>
+
+        <!-- Actionbar color -->
+        <item name="colorPrimary">@color/colorTransparent</item>
+        <!--Status bar color-->
+        <item name="colorPrimaryDark">@color/colorTransparent</item>
+        <!--Window color-->
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.AppTheme">
+    </style>
+</resources>

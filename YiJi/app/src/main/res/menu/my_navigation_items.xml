@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navi_setting"
+        android:iconTint="#000000"
+        android:title="设置"
+        android:icon="@drawable/gear"/>
+
+    <item
+        android:id="@+id/navi_bakcup"
+        android:iconTint="#000000"
+        android:title="备份"
+        android:icon="@drawable/backup"/>
+
+    <item
+        android:id="@+id/navi_restore"
+        android:iconTint="#000000"
+        android:title="恢复"
+        android:icon="@drawable/restore"/>
+
+    <item
+        android:id="@+id/navi_aboutus"
+        android:iconTint="#000000"
+        android:title="关于我们"
+        android:icon="@drawable/group"/>
+
+</menu>
