@@ -50,12 +50,10 @@ public class PenFragment extends Fragment {
 
     private void insertFakeData(){
         SQLiteDatabase db = getActivity().openOrCreateDatabase("transaction", MODE_PRIVATE, null);
-
     }
 
     private List<Transaction> getData(boolean income){
         List<Transaction> list = new ArrayList<>();
-
         return list;
     }
 

@@ -1,16 +1,21 @@
 package com.example.bing.yiji;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
+    TextView tvHint, tvEmail, tvSignOut;
+    static final int addPayment = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +64,15 @@ public class MainActivity extends AppCompatActivity {
                 String mess = "";
                 switch(item.getItemId()){
                     case R.id.add:
-                        mess = "add";
+                        Intent intent = new Intent(MainActivity.this, AddPaymentActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.search:
                         mess = "search";
+                        Toast.makeText(MainActivity.this, "you click the "+mess+" button", Toast.LENGTH_SHORT).show();
                         break;
                 }
-                Toast.makeText(MainActivity.this, "you click the "+mess+" button", Toast.LENGTH_SHORT).show();
+
                 return false;
             }
         });
@@ -112,12 +121,24 @@ public class MainActivity extends AppCompatActivity {
 
         View header =  navigationView.getHeaderView(0);
         ImageView btnLogin = header.findViewById(R.id.btn_login);
+        tvSignOut = header.findViewById(R.id.btn_sign_out);
+        tvEmail = header.findViewById(R.id.tv_email);
+        tvHint = header.findViewById(R.id.hint_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) { startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == addPayment){
+            if(resultCode == RESULT_OK){
+                String message = (String) data.getExtras().get("data");
+                Log.d("result", "onActivityResult: "+message);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
