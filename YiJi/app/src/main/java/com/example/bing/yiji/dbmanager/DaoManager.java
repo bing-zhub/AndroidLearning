@@ -32,7 +32,7 @@ public class DaoManager {
         this.context = context;
     }
 
-    public DaoMaster getDaoMaster(){
+    private DaoMaster getDaoMaster(){
             if(daoMaster == null){
                 DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, DB_NAME, null);
                 daoMaster = new DaoMaster(helper.getWritableDatabase());

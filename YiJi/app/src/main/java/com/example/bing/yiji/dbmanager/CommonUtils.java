@@ -2,9 +2,12 @@ package com.example.bing.yiji.dbmanager;
 
 import android.content.Context;
 
+import com.payment.PaymentDao;
 import com.payment.entity.Payment;
 
 import java.util.List;
+
+import de.greenrobot.dao.query.QueryBuilder;
 
 public class CommonUtils {
     private DaoManager manager;
@@ -15,8 +18,7 @@ public class CommonUtils {
     }
 
     public boolean insertPayment(Payment payment){
-        boolean flag = manager.getDaoSession().insert(payment)!=-1;
-        return flag;
+        return manager.getDaoSession().insert(payment)!=-1;
     }
 
     public boolean insertMutiPayments(final List<Payment> payments){
@@ -65,5 +67,21 @@ public class CommonUtils {
         List<Payment> payments = manager.getDaoSession().queryRaw(Payment.class, "where type = ? and _id > ?", new String[]{"clothing", "100"});
 
     }
-    
+
+    public void query2(){
+        QueryBuilder<Payment> builder = manager.getDaoSession().queryBuilder(Payment.class);
+        builder.where((PaymentDao.Properties.Type.eq("clothing"))).list();
+    }
+
+    public List<Payment> findPaymentsByType(String type){
+        try{
+            QueryBuilder<Payment> builder = manager.getDaoSession().queryBuilder(Payment.class);
+            List<Payment> payments = builder.where(PaymentDao.Properties.Type.eq(type)).list();
+            return payments;
+        }catch (Exception e){
+            return null;
+        }
+    }
+
+
 }
