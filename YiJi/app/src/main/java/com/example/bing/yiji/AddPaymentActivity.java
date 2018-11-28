@@ -150,18 +150,24 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
             }
         });
 
-
+        paymentLocation.setText("杭州");
     }
 
     public void saveData(View view){
-        if(payment.getType()==null || payment.getNum() == 0){
-            Toast.makeText(this, "未选择类别或未设置金额", Toast.LENGTH_SHORT).show();
+        if(payment.getType()==null){
+            Toast.makeText(this, "未选择类别", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(paymentPrice.getText().toString().isEmpty()){
+            Toast.makeText(this, "未设置金额", Toast.LENGTH_SHORT).show();
             return;
         }
         payment.setDate(gDate);
-        payment.setNum(Integer.valueOf(paymentPrice.getText().toString().isEmpty()?"0":paymentPrice.getText().toString()));
+        payment.setNum(Integer.valueOf(paymentPrice.getText().toString()));
         payment.setDescription(paymentDescription.getText().toString());
+        payment.setLocation(paymentLocation.getText().toString());
         Toast.makeText(this, payment.getType()+" "+payment.getDescription()+" "+payment.getDate().toString()+" "+payment.getNum(), Toast.LENGTH_SHORT).show();
+        commonUtils.insertPayment(payment);
     }
 
 

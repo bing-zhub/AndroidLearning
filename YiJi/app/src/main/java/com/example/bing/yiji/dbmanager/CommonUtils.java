@@ -2,6 +2,7 @@ package com.example.bing.yiji.dbmanager;
 
 import android.content.Context;
 
+import com.payment.DaoMaster;
 import com.payment.PaymentDao;
 import com.payment.entity.Payment;
 
@@ -35,6 +36,10 @@ public class CommonUtils {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public void dropAllData(){
+        manager.dropAll();
     }
 
     public boolean updatePayment(Payment payment){
@@ -82,6 +87,10 @@ public class CommonUtils {
             return null;
         }
     }
+
+
+
+
 
 
 }

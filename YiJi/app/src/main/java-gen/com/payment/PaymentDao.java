@@ -28,6 +28,7 @@ public class PaymentDao extends AbstractDao<Payment, Long> {
         public final static Property Num = new Property(2, Integer.class, "num", false, "NUM");
         public final static Property Date = new Property(3, java.util.Date.class, "date", false, "DATE");
         public final static Property Description = new Property(4, String.class, "description", false, "DESCRIPTION");
+        public final static Property Location = new Property(5, String.class, "location", false, "LOCATION");
     };
 
 
@@ -47,7 +48,8 @@ public class PaymentDao extends AbstractDao<Payment, Long> {
                 "\"TYPE\" TEXT," + // 1: type
                 "\"NUM\" INTEGER," + // 2: num
                 "\"DATE\" INTEGER," + // 3: date
-                "\"DESCRIPTION\" TEXT);"); // 4: description
+                "\"DESCRIPTION\" TEXT," + // 4: description
+                "\"LOCATION\" TEXT);"); // 5: location
     }
 
     /** Drops the underlying database table. */
@@ -85,6 +87,11 @@ public class PaymentDao extends AbstractDao<Payment, Long> {
         if (description != null) {
             stmt.bindString(5, description);
         }
+ 
+        String location = entity.getLocation();
+        if (location != null) {
+            stmt.bindString(6, location);
+        }
     }
 
     /** @inheritdoc */
@@ -101,7 +108,8 @@ public class PaymentDao extends AbstractDao<Payment, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // type
             cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // num
             cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)), // date
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // description
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // description
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // location
         );
         return entity;
     }
@@ -114,6 +122,7 @@ public class PaymentDao extends AbstractDao<Payment, Long> {
         entity.setNum(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setDate(cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)));
         entity.setDescription(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setLocation(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     /** @inheritdoc */

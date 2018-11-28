@@ -1,6 +1,7 @@
 package com.example.bing.yiji.dbmanager;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.payment.DaoMaster;
 import com.payment.DaoSession;
@@ -25,6 +26,7 @@ public class DaoManager {
                 manager = instance;
             }
         }
+
         return instance;
     }
 
@@ -40,7 +42,14 @@ public class DaoManager {
         return daoMaster;
     }
 
-    public  DaoSession getDaoSession() {
+    public void dropAll(){
+        if(daoMaster != null){
+            DaoMaster.dropAllTables(daoMaster.getDatabase(),true);
+            DaoMaster.createAllTables(daoMaster.getDatabase(), true);
+        }
+    }
+
+    public DaoSession getDaoSession() {
         if(daoSession== null){
             if(daoMaster == null){
                 daoMaster = getDaoMaster();

@@ -59,6 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <LinearLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -66,10 +67,10 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/clothe"/>
+                        android:src="@drawable/calendar"/>
                     <TextView
                         android:id="@+id/payment_date"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
                         android:textSize="20sp"
                         android:layout_width="wrap_content"
@@ -88,9 +89,10 @@
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/book"/>
+                        android:src="@drawable/location"/>
                     <EditText
                         android:id="@+id/payment_location"
                         android:layout_margin="10dp"
@@ -101,9 +103,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/bus"
+                        android:src="@drawable/note"
                         android:layout_marginLeft="10dp"/>
                     <EditText
                         android:id="@+id/payment_description"

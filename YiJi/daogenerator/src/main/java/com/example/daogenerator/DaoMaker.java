@@ -7,7 +7,7 @@ import de.greenrobot.daogenerator.Schema;
 public class DaoMaker {
     public static void main(String[] args) {
         // 生成数据库实体类
-        Schema schema = new Schema(1, "com.payment.entity");
+        Schema schema = new Schema(2, "com.payment.entity");
         addPayment(schema);
         schema.setDefaultJavaPackageDao("com.payment");
         try {
@@ -24,5 +24,6 @@ public class DaoMaker {
         entity.addIntProperty("num");
         entity.addDateProperty("date");
         entity.addStringProperty("description");
+        entity.addStringProperty("location");
     }
 }

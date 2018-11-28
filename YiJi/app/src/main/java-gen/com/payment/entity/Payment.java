@@ -11,6 +11,7 @@ public class Payment {
     private Integer num;
     private java.util.Date date;
     private String description;
+    private String location;
 
     public Payment() {
     }
@@ -19,12 +20,13 @@ public class Payment {
         this.id = id;
     }
 
-    public Payment(Long id, String type, Integer num, java.util.Date date, String description) {
+    public Payment(Long id, String type, Integer num, java.util.Date date, String description, String location) {
         this.id = id;
         this.type = type;
         this.num = num;
         this.date = date;
         this.description = description;
+        this.location = location;
     }
 
     public Long getId() {
@@ -65,6 +67,14 @@ public class Payment {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 }
