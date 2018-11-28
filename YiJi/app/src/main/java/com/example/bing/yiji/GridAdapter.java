@@ -9,13 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Map;
+import java.util.List;
 
-public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolder> {
+public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolder> implements View.OnClickListener{
     private Context context;
-    private Map<String, Integer> map;
+    private List<TypeFragment.GridItem> map;
+    private OnItemClickListener mItemClickListener;
 
-    public GridAdapter(Context context, Map<String, Integer> data){
+    public GridAdapter(Context context, List<TypeFragment.GridItem> data){
             this.context = context;
             this.map = data;
     }
@@ -27,8 +28,13 @@ public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolde
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GridViewHolder gridViewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull final GridViewHolder gridViewHolder, int i) {
+        String name = map.get(i).name;
+        gridViewHolder.txt.setText(name);
+        int id = map.get(i).id;
+        gridViewHolder.img.setImageDrawable(context.getDrawable(id));
+        gridViewHolder.itemView.setTag(name);
+        gridViewHolder.itemView.setOnClickListener(this);
     }
 
     @Override
@@ -36,15 +42,31 @@ public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolde
         return map.size();
     }
 
+    @Override
+    public void onClick(View v) {
+        if (mItemClickListener!=null){
+            mItemClickListener.onItemClick((String) v.getTag());
+        }
+    }
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
+
+
     class GridViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView img;
         private TextView txt;
 
-        public GridViewHolder(@NonNull View itemView) {
+        private GridViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.type_icon);
             txt = itemView.findViewById(R.id.type_txt);
         }
     }
+
+    public interface OnItemClickListener{
+        void onItemClick(String position);
+    }
+
 }

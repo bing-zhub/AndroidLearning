@@ -47,7 +47,7 @@ public class PenFragment extends Fragment {
 
         return view;
     }
-    
+
 
     private List<Transaction> getData(boolean income){
         List<Transaction> list = new ArrayList<>();
