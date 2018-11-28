@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Checkable;
 import android.widget.Toast;
 
 import java.util.LinkedHashMap;
@@ -21,7 +22,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
     private RecyclerView typeList;
     private String type;
     private static List<GridItem> payment, income;
-    private FragmentInteraction listterner;
+    private FragmentInteraction listener;
 
     public TypeFragment(){
         payment = new LinkedList<>();
@@ -48,12 +49,13 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
 
     @Override
     public void onItemClick(String position) {
-        listterner.process(position);
+        listener.process(position);
     }
 
-    public class GridItem{
+    public class GridItem implements Checkable {
         String name;
         int id;
+        private boolean mChecked;
 
         public GridItem(){
 
@@ -61,6 +63,21 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
         private GridItem(String name, int id){
             this.name = name;
             this.id = id;
+        }
+
+        @Override
+        public void setChecked(boolean checked) {
+            mChecked = checked;
+        }
+
+        @Override
+        public boolean isChecked() {
+            return mChecked;
+        }
+
+        @Override
+        public void toggle() {
+            setChecked(!mChecked);
         }
     }
 
@@ -75,7 +92,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
         super.onAttach(activity);
 
         if(activity instanceof FragmentInteraction) {
-            listterner = (FragmentInteraction)activity; // 2.2 获取到宿主activity并赋值
+            listener = (FragmentInteraction)activity; // 2.2 获取到宿主activity并赋值
         } else{
             throw new IllegalArgumentException("activity must implements FragmentInteraction");
         }
@@ -101,7 +118,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
     @Override
     public void onDetach() {
         super.onDetach();
-        listterner = null;
+        listener = null;
     }
 
 }
