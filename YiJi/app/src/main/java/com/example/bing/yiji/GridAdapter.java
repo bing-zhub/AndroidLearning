@@ -19,21 +19,6 @@ public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolde
     private List<TypeFragment.GridItem> map;
     private OnItemClickListener mItemClickListener;
     private List<Boolean> booleans;
-    public static final int CHOICE_MODE_NONE = 0;
-    public static final int CHOICE_MODE_SINGLE = 1;
-    public static final int CHOICE_MODE_MULTIPLE = 2;
-    public static final int INVALID_POSITION = -1;
-    private int mChoiceMode = CHOICE_MODE_NONE;
-    private SparseBooleanArray mCheckStates;
-    private int mCheckedItemCount;
-    public void setChoiceMode(int choiceMode) {
-        mChoiceMode = choiceMode;
-        if (mChoiceMode != CHOICE_MODE_NONE) {
-            if (mCheckStates == null) {
-                mCheckStates = new SparseBooleanArray(0);
-            }
-        }
-    }
 
     public GridAdapter(Context context, List<TypeFragment.GridItem> data){
             this.context = context;

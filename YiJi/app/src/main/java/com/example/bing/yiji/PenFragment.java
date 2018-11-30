@@ -1,16 +1,21 @@
 package com.example.bing.yiji;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.bing.yiji.Model.Transaction;
+import com.example.bing.yiji.dbmanager.CommonUtils;
+import com.payment.entity.Payment;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -19,15 +24,17 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenuItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.bing.yiji.MainActivity.commonUtils;
 
 
 public class PenFragment extends Fragment {
 
     private SwipeMenuRecyclerView mRvIncome, mRvOutcome;
-
+    private List<Payment> paymentList;
     public PenFragment() {
     }
 
@@ -44,17 +51,21 @@ public class PenFragment extends Fragment {
 
         mRvOutcome = view.findViewById(R.id.rv_outcome);
         setConfigToOutCome();
-
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        getData();
+        super.onAttach(context);
+    }
 
-    private List<Transaction> getData(boolean income){
-        List<Transaction> list = new ArrayList<>();
-        return list;
+    private void getData(){
+        paymentList = commonUtils.listAllPayments();
     }
 
     private void setConfigToOutCome() {
+        getData();
         mRvOutcome.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvOutcome.setSwipeMenuCreator(new SwipeMenuCreator() {
             @Override
@@ -68,18 +79,23 @@ public class PenFragment extends Fragment {
             }
         });
 
+        final LinearAdapter linearAdapter = new LinearAdapter(getActivity(), paymentList);
         mRvOutcome.setSwipeMenuItemClickListener(new SwipeMenuItemClickListener() {
             @Override
             public void onItemClick(SwipeMenuBridge menuBridge) {
                 menuBridge.closeMenu();
                 int adapterPosition = menuBridge.getAdapterPosition(); // RecyclerView的Item的position。
-                Toast.makeText(getContext(), "删除"+adapterPosition, Toast.LENGTH_SHORT).show();
+                commonUtils.deltePayment(commonUtils.findPayment(paymentList.get(adapterPosition).getId()));
+                linearAdapter.notifyItemRemoved(adapterPosition);
+                getData();
+                Toast.makeText(getContext(), "删除"+paymentList.get(adapterPosition).getId(), Toast.LENGTH_SHORT).show();
             }
         });
-        mRvOutcome.setAdapter(new LinearAdapter(getActivity(), "支出"));
+        mRvOutcome.setAdapter(linearAdapter);
     }
 
     private void setConfigToIncome() {
+        getData();
         mRvIncome.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvIncome.setSwipeMenuCreator(new SwipeMenuCreator() {
             @Override
@@ -101,8 +117,10 @@ public class PenFragment extends Fragment {
                 Toast.makeText(getContext(), "删除"+adapterPosition, Toast.LENGTH_SHORT).show();
             }
         });
-        mRvIncome.setAdapter(new LinearAdapter(getActivity(), "收入"));
+        mRvIncome.setAdapter(new LinearAdapter(getActivity(), paymentList));
         mRvIncome.setItemAnimator(new DefaultItemAnimator());
     }
+
+
 
 }

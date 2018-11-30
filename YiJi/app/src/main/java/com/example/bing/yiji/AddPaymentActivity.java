@@ -3,7 +3,6 @@ package com.example.bing.yiji;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +23,10 @@ import com.payment.entity.Payment;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.example.bing.yiji.MainActivity.commonUtils;
+
 public class AddPaymentActivity extends AppCompatActivity implements TypeFragment.FragmentInteraction{
 
-    private static CommonUtils commonUtils;
     Toolbar toolbar;
     TabLayout tabLayout;
     FrameLayout typeContainer;
@@ -168,6 +168,7 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
         payment.setLocation(paymentLocation.getText().toString());
         Toast.makeText(this, payment.getType()+" "+payment.getDescription()+" "+payment.getDate().toString()+" "+payment.getNum(), Toast.LENGTH_SHORT).show();
         commonUtils.insertPayment(payment);
+        finish();
     }
 
 

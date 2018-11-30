@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.facebook.stetho.Stetho;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
     TextView tvHint, tvEmail, tvSignOut;
+    public static CommonUtils commonUtils;
     static final int addPayment = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        commonUtils = new CommonUtils(MainActivity.this);
         Stetho.initializeWithDefaults(this);
         toolbar = findViewById(R.id.tool_bar);
         drawerLayout = findViewById(R.id.drawer_layout);

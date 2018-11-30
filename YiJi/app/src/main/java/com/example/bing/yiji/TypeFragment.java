@@ -21,7 +21,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
 
     private RecyclerView typeList;
     private String type;
-    private static List<GridItem> payment, income;
+    public static List<GridItem> payment, income;
     private FragmentInteraction listener;
 
     public TypeFragment(){
@@ -52,7 +52,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
         listener.process(position);
     }
 
-    public class GridItem implements Checkable {
+    public class GridItem {
         String name;
         int id;
         private boolean mChecked;
@@ -63,21 +63,6 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
         private GridItem(String name, int id){
             this.name = name;
             this.id = id;
-        }
-
-        @Override
-        public void setChecked(boolean checked) {
-            mChecked = checked;
-        }
-
-        @Override
-        public boolean isChecked() {
-            return mChecked;
-        }
-
-        @Override
-        public void toggle() {
-            setChecked(!mChecked);
         }
     }
 

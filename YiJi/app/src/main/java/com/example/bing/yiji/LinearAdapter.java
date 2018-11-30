@@ -2,20 +2,28 @@ package com.example.bing.yiji;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.bing.yiji.dbmanager.CommonUtils;
+import com.payment.entity.Payment;
+
+import java.lang.reflect.Type;
+import java.util.Date;
+import java.util.List;
+
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder> {
 
     private Context mContext;
-    private String flag;
+    private List<Payment> list;
 
-    public LinearAdapter(Context context, String flag){
+    public LinearAdapter(Context context, List<Payment> list){
         this.mContext = context;
-        this.flag = flag;
+        this.list = list;
     }
 
     @Override
@@ -25,21 +33,19 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
     @Override
     public void onBindViewHolder(LinearAdapter.LinearViewHolder holder, int position) {
-        if(flag.equals("支出")){
-            holder.titleText.setText("支出");
-            holder.moneyText.setText("-100");
-        } else{
-            holder.titleText.setText("收入");
-            holder.moneyText.setText("+100");
-        }
+        holder.moneyText.setText(list.get(position).getNum()+"");
+        holder.titleText.setText(list.get(position).getType());
+        String type = list.get(position).getType();
+        int drawableId = CommonUtils.payment.get(type);
+        holder.iconImage.setImageDrawable(mContext.getDrawable(drawableId));
+        Date date = list.get(position).getDate();
 
-        holder.iconImage.setImageResource(R.drawable.money);
-        holder.dateText.setText("2018-12-1");
+        holder.dateText.setText((1900+date.getYear())+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日");
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return list.size();
     }
 
     class LinearViewHolder extends RecyclerView.ViewHolder {
