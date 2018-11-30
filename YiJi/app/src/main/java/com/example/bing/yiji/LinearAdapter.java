@@ -16,6 +16,8 @@ import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.bing.yiji.MainActivity.commonUtils;
+
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder> {
 
     private Context mContext;
@@ -46,6 +48,16 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void removeItem(int pos, long id){
+        commonUtils.deletePayment(commonUtils.findPayment(id));
+        notifyItemRemoved(pos);
+        list.remove(pos);
+    }
+
+    public void updateItem(List<Payment> list){
+        this.list = list;
     }
 
     class LinearViewHolder extends RecyclerView.ViewHolder {

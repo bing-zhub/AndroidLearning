@@ -74,7 +74,7 @@ public class CommonUtils {
         }
     }
 
-    public boolean deltePayment(Payment payment){
+    public boolean deletePayment(Payment payment){
         try{
             manager.getDaoSession().delete(payment);
             return true;

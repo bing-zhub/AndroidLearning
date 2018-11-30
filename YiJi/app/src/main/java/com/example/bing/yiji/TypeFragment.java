@@ -55,11 +55,7 @@ public class TypeFragment extends Fragment implements GridAdapter.OnItemClickLis
     public class GridItem {
         String name;
         int id;
-        private boolean mChecked;
 
-        public GridItem(){
-
-        }
         private GridItem(String name, int id){
             this.name = name;
             this.id = id;

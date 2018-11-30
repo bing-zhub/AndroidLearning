@@ -74,6 +74,7 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
         return dialog;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +126,8 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
 
             }
         });
+
+
 
         paymentDate = findViewById(R.id.payment_date);
         paymentTime = findViewById(R.id.payment_time);
