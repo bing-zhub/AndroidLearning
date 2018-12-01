@@ -1,4 +1,5 @@
 <resources>
+
     <style name="Base.AppTheme" parent="Theme.AppCompat">
         <!--去掉原来的ActionBar-->
         <item name="windowActionBar">false</item>
@@ -15,6 +16,17 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Base.AppTheme">
+    <style name="AppTheme" parent="Base.AppTheme"></style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 </resources>
