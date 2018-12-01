@@ -3,7 +3,9 @@ package com.example.bing.yiji;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.bing.yiji.dbmanager.CommonUtils;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.payment.entity.Payment;
 import com.tapadoo.alerter.Alerter;
 
@@ -155,6 +159,70 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
         });
 
         paymentLocation.setText("杭州");
+
+
+        showGuide();
+
+    }
+
+    public void showGuide(){
+
+        SharedPreferences spf = getSharedPreferences("data", MODE_PRIVATE);
+        boolean isFirstStartUp =  spf.getBoolean("AddFirstStartUp", true);
+
+        if(!isFirstStartUp) return;
+
+        spf.edit().putBoolean("AddFirstStartUp", false).apply();
+        new TapTargetSequence(this).targets(
+                TapTarget.forView(paymentPrice, "设置金额", "输入支出金额, 仅限整数")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF),
+                TapTarget.forView(typeContainer, "选择类别", "选择支出的类别")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF),
+                TapTarget.forView(paymentDate, "消费日期", "在对话框中选择消费日期")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF),
+                TapTarget.forView(paymentTime, "消费时间", "在对话框中选择消费时间")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF),
+                TapTarget.forView(paymentLocation, "消费地点", "输入消费地点")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF),
+                TapTarget.forView(paymentDescription, "消费备注", "输入消费备注")
+                        .textColor(R.color.colorAccent)
+                        .outerCircleColor(R.color.colorWhite)
+                        .targetCircleColor(R.color.colorPrimary)
+                        .textTypeface(Typeface.SANS_SERIF)
+        )
+                .listener(new TapTargetSequence.Listener() {
+                    @Override
+                    public void onSequenceFinish() {
+                        finish();
+                    }
+
+                    @Override
+                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+
+                    }
+
+                    @Override
+                    public void onSequenceCanceled(TapTarget lastTarget) {
+
+                    }
+                })
+                .start();
+
     }
 
     public void saveData(View view){

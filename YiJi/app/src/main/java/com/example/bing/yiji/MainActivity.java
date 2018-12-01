@@ -1,7 +1,9 @@
 package com.example.bing.yiji;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -21,6 +23,11 @@ import android.widget.Toolbar;
 
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.facebook.stetho.Stetho;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.getkeepsafe.taptargetview.TapTargetView;
+
+import java.lang.annotation.Target;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -131,6 +138,48 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) { startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+
+        showGuide();
+    }
+
+    public void showGuide(){
+        SharedPreferences spf = getSharedPreferences("data", MODE_PRIVATE);
+        boolean isFirstStartUp =  spf.getBoolean("MainFirstStartUp", true);
+
+        if(!isFirstStartUp) return;
+
+        spf.edit().putBoolean("MainFirstStartUp", false).apply();
+        new TapTargetSequence(this)
+                .targets(
+                        TapTarget.forView(bottomNavigationView.findViewById(R.id.chart), "统计信息", "点击这里以查看统计信息")
+                                .textColor(R.color.colorAccent)
+                                .outerCircleColor(R.color.colorWhite)
+                                .targetCircleColor(R.color.colorPrimary)
+                                .textTypeface(Typeface.SANS_SERIF),
+                        TapTarget.forView(bottomNavigationView.findViewById(R.id.pen), "资金往来记录", "点击这里以查看最近资金往来")
+                                .textColor(R.color.colorAccent)
+                                .outerCircleColor(R.color.colorWhite)
+                                .targetCircleColor(R.color.colorPrimary),
+                        TapTarget.forView(toolbar.findViewById(R.id.add),"添加记录", "点击这里以添加记录")
+                                .textColor(R.color.colorAccent)
+                                .outerCircleColor(R.color.colorWhite)
+                                .targetCircleColor(R.color.colorPrimary)
+                ).listener(new TapTargetSequence.Listener() {
+            @Override
+            public void onSequenceFinish() {
+                toolbar.findViewById(R.id.add).callOnClick();
+            }
+
+            @Override
+            public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+
+            }
+
+            @Override
+            public void onSequenceCanceled(TapTarget lastTarget) {
+                // Boo
+            }
+        }).start();
     }
 
     @Override
