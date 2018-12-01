@@ -238,7 +238,11 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
         payment.setNum(Integer.valueOf(paymentPrice.getText().toString()));
         payment.setDescription(paymentDescription.getText().toString());
         payment.setLocation(paymentLocation.getText().toString());
-        Toast.makeText(this, payment.getType()+" "+payment.getDescription()+" "+payment.getDate().toString()+" "+payment.getNum(), Toast.LENGTH_SHORT).show();
+        Alerter.create(AddPaymentActivity.this)
+                .setText((gDate.getMonth()+1)+"月"+(gDate.getDate())+"日 消费"+payment.getNum()+"消费已添加")
+                .setIcon(R.drawable.alerter_ic_notifications)
+                .setBackgroundColorInt(Color.parseColor("#EA9453"))
+                .show();
         commonUtils.insertPayment(payment);
         finish();
     }

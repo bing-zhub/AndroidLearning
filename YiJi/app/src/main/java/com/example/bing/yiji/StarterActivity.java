@@ -68,6 +68,7 @@ public class StarterActivity extends Activity {
             @Override
             public void onAnimationEnd(Animation arg0) {
                 startActivity(new Intent(StarterActivity.this, GuideActivity.class));
+                finish();
             }
         });
          mContentView.startAnimation(anim);
