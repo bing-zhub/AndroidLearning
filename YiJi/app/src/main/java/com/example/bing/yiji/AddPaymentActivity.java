@@ -19,6 +19,7 @@ import android.widget.Toolbar;
 
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.payment.entity.Payment;
+import com.tapadoo.alerter.Alerter;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -158,11 +159,11 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
 
     public void saveData(View view){
         if(payment.getType()==null){
-            Toast.makeText(this, "未选择类别", Toast.LENGTH_SHORT).show();
+            Alerter.create(this).setText("未选择类别").setIcon(R.drawable.book).setBackgroundColorInt(Color.parseColor("#EA9453")).show();
             return;
         }
         if(paymentPrice.getText().toString().isEmpty()){
-            Toast.makeText(this, "未设置金额", Toast.LENGTH_SHORT).show();
+            Alerter.create(this).setText("未设置金额").setIcon(R.drawable.money).setBackgroundColorInt(Color.parseColor("#EA9453")).show();
             return;
         }
         payment.setDate(gDate);
@@ -173,7 +174,6 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
         commonUtils.insertPayment(payment);
         finish();
     }
-
 
     @Override
     public void process(String str) {

@@ -3,6 +3,7 @@ package com.example.bing.yiji;
 import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.bing.yiji.Model.Transaction;
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.payment.entity.Payment;
+import com.tapadoo.alerter.Alerter;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -112,14 +114,19 @@ public class PenFragment extends Fragment {
     }
 
     private void removeItem(int adapterPosition){
-        Toast.makeText(getContext(), "删除"+paymentList.get(adapterPosition).getId(), Toast.LENGTH_SHORT).show();
-        Log.d("remove", paymentList.get(adapterPosition).getId()+"");
+        Payment payment = paymentList.get(adapterPosition);
+        Alerter.create(getActivity())
+                .setBackgroundColorInt(Color.parseColor("#EA9453"))
+                .setIcon(R.drawable.alerter_ic_notifications)
+                .setText(payment.getType()+"类"+payment.getNum()+"元消费已删除")
+                .show();
+//        Toast.makeText(getContext(), "删除"+paymentList.get(adapterPosition).getId(), Toast.LENGTH_SHORT).show();
         linearAdapter.removeItem(adapterPosition, paymentList.get(adapterPosition).getId());
         updateSum();
     }
 
     private void setConfigToIncome() {
-        getData();
+        List<Payment> list = new LinkedList<>();
         mRvIncome.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvIncome.setSwipeMenuCreator(new SwipeMenuCreator() {
             @Override
@@ -141,7 +148,7 @@ public class PenFragment extends Fragment {
                 Toast.makeText(getContext(), "删除"+adapterPosition, Toast.LENGTH_SHORT).show();
             }
         });
-        mRvIncome.setAdapter(new LinearAdapter(getActivity(), paymentList));
+        mRvIncome.setAdapter(new LinearAdapter(getActivity(), list));
         mRvIncome.setItemAnimator(new DefaultItemAnimator());
     }
 }
