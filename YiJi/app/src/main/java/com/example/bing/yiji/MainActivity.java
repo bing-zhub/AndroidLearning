@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 String mess = "";
                 switch (menuItem.getItemId()){
                     case R.id.navi_setting:
-                        mess = "setting";
+                        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                         break;
                     case R.id.navi_bakcup:
                         mess = "backup";
@@ -117,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                         mess = "about us";
                         break;
                 }
-                Toast.makeText(MainActivity.this, "you click the "+mess+" button", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
