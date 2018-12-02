@@ -1,8 +1,11 @@
 package com.example.bing.yiji;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -50,11 +53,16 @@ public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolde
                 if (mItemClickListener!=null){
                     mItemClickListener.onItemClick((String) v.getTag());
                 }
+                ImageView view =  v.findViewById(R.id.type_icon);
+
                 if(booleans.get(i)){
-                    v.setBackgroundColor(Color.TRANSPARENT);
+
+                    setImageViewColor(view, R.color.colorWhite);
+//                    v.findViewById(R.id.type_icon).setBackgroundColor();
                     booleans.set(i,false);
                 } else{
-                    v.setBackgroundColor(Color.BLUE);
+//                    v.findViewById(R.id.type_icon).setBackgroundColor(Color.parseColor("#eff2fa"));
+                    setImageViewColor(view, R.color.colorAccent);
                     booleans.set(i,true);
                 }
 
@@ -62,6 +70,14 @@ public class GridAdapter extends RecyclerView.Adapter< GridAdapter.GridViewHolde
         });
     }
 
+    public static void setImageViewColor(ImageView view, int colorResId) {
+        //mutate()
+        Drawable modeDrawable = view.getDrawable().mutate();
+        Drawable temp = DrawableCompat.wrap(modeDrawable);
+        ColorStateList colorStateList = ColorStateList.valueOf(view.getResources().getColor(colorResId));
+        DrawableCompat.setTintList(temp, colorStateList);
+        view.setImageDrawable(temp);
+    }
 
 
     @Override
