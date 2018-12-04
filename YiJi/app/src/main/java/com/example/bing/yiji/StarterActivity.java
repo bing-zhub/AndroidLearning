@@ -61,7 +61,7 @@ public class StarterActivity extends Activity {
             public void onAnimationEnd(Animator animation)
             {
 
-                startActivity(new Intent(StarterActivity.this, GuideActivity.class));
+                startActivity(new Intent(StarterActivity.this, onBoardingActivity.class));
                 StarterActivity.this.finish();
             }
         });
