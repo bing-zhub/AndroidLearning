@@ -9,6 +9,7 @@ import android.app.FragmentTransaction;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -77,7 +78,7 @@ public class onBoardingActivity extends Activity {
         final int color1 = ContextCompat.getColor(this, R.color.colorAccent);
         final int color2 = ContextCompat.getColor(this, R.color.colorPrimary);
         final int color3 = ContextCompat.getColor(this, R.color.colorPrimaryDark);
-
+        final Intent intent = new Intent(onBoardingActivity.this, MainActivity.class);
         final int[] colorList = new int[]{color1, color2, color3, color1};
 
         final ArgbEvaluator evaluator = new ArgbEvaluator();
@@ -131,15 +132,14 @@ public class onBoardingActivity extends Activity {
         mSkipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                finish();
+                startActivity(intent);
             }
         });
 
         mFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(intent);
             }
         });
 
