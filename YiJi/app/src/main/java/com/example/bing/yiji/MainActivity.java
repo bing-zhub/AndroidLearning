@@ -37,14 +37,12 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
     TextView tvHint, tvEmail, tvSignOut;
-    public static CommonUtils commonUtils;
     static final int addPayment = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        commonUtils = new CommonUtils(MainActivity.this);
         Stetho.initializeWithDefaults(this);
         toolbar = findViewById(R.id.tool_bar);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -154,15 +152,18 @@ public class MainActivity extends AppCompatActivity {
                         TapTarget.forView(bottomNavigationView.findViewById(R.id.chart), "统计信息", "点击这里以查看统计信息")
                                 .textColor(R.color.colorAccent)
                                 .outerCircleColor(R.color.colorWhite)
+                                .drawShadow(true)
                                 .targetCircleColor(R.color.colorPrimary)
                                 .textTypeface(Typeface.SANS_SERIF),
                         TapTarget.forView(bottomNavigationView.findViewById(R.id.pen), "资金往来记录", "点击这里以查看最近资金往来")
                                 .textColor(R.color.colorAccent)
                                 .outerCircleColor(R.color.colorWhite)
+                                .drawShadow(true)
                                 .targetCircleColor(R.color.colorPrimary),
                         TapTarget.forView(toolbar.findViewById(R.id.add),"添加记录", "点击这里以添加记录")
                                 .textColor(R.color.colorAccent)
                                 .outerCircleColor(R.color.colorWhite)
+                                .drawShadow(true)
                                 .targetCircleColor(R.color.colorPrimary)
                 ).listener(new TapTargetSequence.Listener() {
             @Override

@@ -78,7 +78,6 @@ public class onBoardingActivity extends Activity {
         final int color1 = ContextCompat.getColor(this, R.color.colorAccent);
         final int color2 = ContextCompat.getColor(this, R.color.colorPrimary);
         final int color3 = ContextCompat.getColor(this, R.color.colorPrimaryDark);
-        final Intent intent = new Intent(onBoardingActivity.this, MainActivity.class);
         final int[] colorList = new int[]{color1, color2, color3, color1};
 
         final ArgbEvaluator evaluator = new ArgbEvaluator();
@@ -132,14 +131,18 @@ public class onBoardingActivity extends Activity {
         mSkipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(onBoardingActivity.this, MainActivity.class);
                 startActivity(intent);
+                onBoardingActivity.this.finish();
             }
         });
 
         mFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(onBoardingActivity.this, MainActivity.class);
                 startActivity(intent);
+                onBoardingActivity.this.finish();
             }
         });
 

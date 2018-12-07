@@ -18,8 +18,9 @@
         <LinearLayout
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="vertical">
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
                 android:layout_width="match_parent"

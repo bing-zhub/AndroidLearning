@@ -2,7 +2,6 @@ package com.example.bing.yiji;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,10 @@ import android.widget.TextView;
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.payment.entity.Payment;
 
-import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
 
-import static com.example.bing.yiji.MainActivity.commonUtils;
+import static com.example.bing.yiji.StarterActivity.commonUtils;
 
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder> {
 

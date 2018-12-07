@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.bing.yiji.dbmanager.CommonUtils;
@@ -27,8 +26,8 @@ import com.tapadoo.alerter.Alerter;
 
 import java.util.Calendar;
 import java.util.Date;
+import static com.example.bing.yiji.StarterActivity.commonUtils;
 
-import static com.example.bing.yiji.MainActivity.commonUtils;
 
 public class AddPaymentActivity extends AppCompatActivity implements TypeFragment.FragmentInteraction{
 
@@ -178,30 +177,38 @@ public class AddPaymentActivity extends AppCompatActivity implements TypeFragmen
                         .textColor(R.color.colorAccent)
                         .outerCircleColor(R.color.colorWhite)
                         .targetCircleColor(R.color.colorPrimary)
+                        .drawShadow(true)
                         .textTypeface(Typeface.SANS_SERIF),
                 TapTarget.forView(typeContainer, "选择类别", "选择支出的类别")
                         .textColor(R.color.colorAccent)
                         .outerCircleColor(R.color.colorWhite)
+                        .targetRadius(100)
+                        .drawShadow(true)
                         .targetCircleColor(R.color.colorPrimary)
                         .textTypeface(Typeface.SANS_SERIF),
                 TapTarget.forView(paymentDate, "消费日期", "在对话框中选择消费日期")
                         .textColor(R.color.colorAccent)
+                        .targetRadius(80)
+                        .drawShadow(true)
                         .outerCircleColor(R.color.colorWhite)
                         .targetCircleColor(R.color.colorPrimary)
                         .textTypeface(Typeface.SANS_SERIF),
                 TapTarget.forView(paymentTime, "消费时间", "在对话框中选择消费时间")
                         .textColor(R.color.colorAccent)
                         .outerCircleColor(R.color.colorWhite)
+                        .drawShadow(true)
                         .targetCircleColor(R.color.colorPrimary)
                         .textTypeface(Typeface.SANS_SERIF),
-                TapTarget.forView(paymentLocation, "消费地点", "输入消费地点")
+                TapTarget.forView(findViewById(R.id.payment_location_icon), "消费地点", "输入消费地点")
                         .textColor(R.color.colorAccent)
                         .outerCircleColor(R.color.colorWhite)
+                        .drawShadow(true)
                         .targetCircleColor(R.color.colorPrimary)
                         .textTypeface(Typeface.SANS_SERIF),
-                TapTarget.forView(paymentDescription, "消费备注", "输入消费备注")
+                TapTarget.forView(findViewById(R.id.payment_description_icon), "消费备注", "输入消费备注")
                         .textColor(R.color.colorAccent)
                         .outerCircleColor(R.color.colorWhite)
+                        .drawShadow(true)
                         .targetCircleColor(R.color.colorPrimary)
                         .textTypeface(Typeface.SANS_SERIF)
         )

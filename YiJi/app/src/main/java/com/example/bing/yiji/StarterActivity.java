@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.widget.ImageView;
 
+import com.example.bing.yiji.dbmanager.CommonUtils;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +25,8 @@ public class StarterActivity extends Activity {
     private static final int ANIM_TIME = 2000;
 
     private static final float SCALE_END = 1.15F;
+    public static CommonUtils commonUtils;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,7 @@ public class StarterActivity extends Activity {
         mIVEntry = findViewById(R.id.iv_entry);
 
         mIVEntry.setImageResource(R.drawable.launch_1);
-
+        commonUtils = new CommonUtils(StarterActivity.this);
         Observable.timer(1000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Long>()

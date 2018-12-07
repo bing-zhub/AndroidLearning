@@ -8,17 +8,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bing.yiji.Model.Transaction;
-import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.payment.entity.Payment;
 import com.tapadoo.alerter.Alerter;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
@@ -28,13 +23,10 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.bing.yiji.MainActivity.commonUtils;
-
+import static com.example.bing.yiji.StarterActivity.commonUtils;
 
 public class PenFragment extends Fragment {
 
