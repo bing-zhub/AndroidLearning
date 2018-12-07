@@ -1,0 +1,7 @@
+{
+  "appId": "8zypnFERYw8X3snyaeWoddq0rCaI5B18hQcl7GsF",
+  "masterKey": "jKWXBaoPN1f5zq7kQxUQCiHObLIOBmeHX7jDYdvW",
+  "appName": "YiJi",
+  "cloud": "./cloud/main",
+  "databaseURI": "mongodb://127.0.0.1:27017/yiji"
+}
