@@ -1,0 +1,2 @@
+{"error":{"code":255,"message":"Class ExampleObject is not empty, contains 1 objects, cannot drop schema."},"level":"error","message":"Error generating response. ParseError {\n  code: 255,\n  message:\n   'Class ExampleObject is not empty, contains 1 objects, cannot drop schema.' }","timestamp":"2018-12-08T06:20:18.122Z"}
+{"code":255,"message":"Class ExampleObject is not empty, contains 1 objects, cannot drop schema.","level":"error","timestamp":"2018-12-08T06:20:18.125Z"}

@@ -1,8 +1,5 @@
-package com.example.bing.yiji;
+package com.example.bing.yiji.Fragment;
 
-import android.app.Activity;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bing.yiji.Adapter.LinearAdapter;
+import com.example.bing.yiji.R;
 import com.payment.entity.Payment;
 import com.tapadoo.alerter.Alerter;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;

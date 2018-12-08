@@ -1,18 +1,19 @@
-package com.example.bing.yiji;
+package com.example.bing.yiji.Adapter;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.bing.yiji.R;
+import com.example.bing.yiji.Fragment.TypeFragment;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.bing.yiji;
+package com.example.bing.yiji.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.bing.yiji.R;
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.payment.entity.Payment;
 

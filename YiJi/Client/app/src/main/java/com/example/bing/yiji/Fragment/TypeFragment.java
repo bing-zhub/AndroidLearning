@@ -1,7 +1,6 @@
-package com.example.bing.yiji;
+package com.example.bing.yiji.Fragment;
 
 import android.app.Activity;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,13 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Checkable;
-import android.widget.Toast;
 
-import java.util.LinkedHashMap;
+import com.example.bing.yiji.Adapter.GridAdapter;
+import com.example.bing.yiji.R;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class TypeFragment extends Fragment implements GridAdapter.OnItemClickListener{
 

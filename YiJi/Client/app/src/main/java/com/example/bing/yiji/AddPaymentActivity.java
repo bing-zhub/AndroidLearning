@@ -17,6 +17,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toolbar;
+
+import com.example.bing.yiji.Fragment.TypeFragment;
 import com.example.bing.yiji.dbmanager.CommonUtils;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;

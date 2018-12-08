@@ -13,21 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.example.bing.yiji.dbmanager.CommonUtils;
+import com.example.bing.yiji.Fragment.ChartFragment;
+import com.example.bing.yiji.Fragment.PenFragment;
 import com.facebook.stetho.Stetho;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
-import com.getkeepsafe.taptargetview.TapTargetView;
-
-import java.lang.annotation.Target;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -113,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                         break;
                     case R.id.navi_bakcup:
-                        mess = "backup";
+                        startActivity(new Intent(MainActivity.this, DataSyncActivity.class));
                         break;
                     case R.id.navi_restore:
                         mess = "restore";

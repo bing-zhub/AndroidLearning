@@ -1,4 +1,4 @@
-package com.example.bing.yiji;
+package com.example.bing.yiji.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
