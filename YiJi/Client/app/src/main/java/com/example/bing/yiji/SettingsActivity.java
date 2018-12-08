@@ -88,5 +88,6 @@ public class SettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
+        toolbar.setTitle("系统偏好设置");
     }
 }

@@ -1,2 +1,4 @@
 {"error":{"code":255,"message":"Class ExampleObject is not empty, contains 1 objects, cannot drop schema."},"level":"error","message":"Error generating response. ParseError {\n  code: 255,\n  message:\n   'Class ExampleObject is not empty, contains 1 objects, cannot drop schema.' }","timestamp":"2018-12-08T06:20:18.123Z"}
 {"code":255,"message":"Class ExampleObject is not empty, contains 1 objects, cannot drop schema.","level":"error","timestamp":"2018-12-08T06:20:18.125Z"}
+{"error":{"code":111,"message":"schema mismatch for UserBackup.income; expected Array but got Number"},"level":"error","message":"Error generating response. ParseError {\n  code: 111,\n  message:\n   'schema mismatch for UserBackup.income; expected Array but got Number' }","timestamp":"2018-12-08T13:52:36.854Z"}
+{"code":111,"message":"schema mismatch for UserBackup.income; expected Array but got Number","level":"error","timestamp":"2018-12-08T13:52:36.855Z"}

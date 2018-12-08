@@ -9,19 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".DataSyncActivity">
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backupData_toolbar"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="56dp"
             android:text="云端"
-            android:textSize="20sp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.v7.widget.RecyclerView
+            android:foregroundGravity="center"
             android:id="@+id/dataRecordList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="本地"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
