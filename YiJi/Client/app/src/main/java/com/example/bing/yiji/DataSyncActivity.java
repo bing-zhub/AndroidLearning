@@ -97,20 +97,21 @@ public class DataSyncActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, final int position) {
                 new MaterialDialog.Builder(DataSyncActivity.this)
-                        .title("请选择操作")
+                        .content("请选择操作")
                         .positiveText("恢复备份")
                         .negativeText("删除备份")
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                Utilities.showNotificationAlerter(DataSyncActivity.this, "恢复");
+                                restoreBackupItem(data.get(position));
+                                Utilities.showNotificationAlerter(DataSyncActivity.this, "已恢复备份");
                             }
                         })
                         .onNegative(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                 deleteBackupItem(data.get(position));
-                                Utilities.showNotificationAlerter(DataSyncActivity.this, "删除");
+                                Utilities.showNotificationAlerter(DataSyncActivity.this, "已删除备份");
                             }
                         })
                         .show();
@@ -119,6 +120,14 @@ public class DataSyncActivity extends AppCompatActivity {
         });
         rvDataRecordList.setAdapter(adapter);
         rvDataRecordList.addItemDecoration(new SpacesItemDecoration(50));
+    }
+
+    private void restoreBackupItem(RecordItem recordItem) {
+        commonUtils.clearPayment();
+        commonUtils.insertMutiPayments(recordItem.getContents());
+        localRecordTotal=localInome=localOutcome=localTotal = 0;
+        getLocalData();
+        setLocalDataToView();
     }
 
     public void getData() {
@@ -167,10 +176,6 @@ public class DataSyncActivity extends AppCompatActivity {
         localDataOutcome.setText("总支出: "+localOutcome);
     }
 
-    public void restoreData(View view){
-
-    }
-
     private void deleteBackupItem(final RecordItem recordItem) {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("UserBackup");
@@ -182,6 +187,11 @@ public class DataSyncActivity extends AppCompatActivity {
                 public void done(ParseException e) {
                     if(e!=null)
                         e.printStackTrace();
+                    else{
+                        data.clear();
+                        getData();
+                        rvDataRecordList.getAdapter().notifyDataSetChanged();
+                    }
                 }
             });
         } catch (ParseException e) {

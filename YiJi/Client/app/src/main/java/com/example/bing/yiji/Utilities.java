@@ -11,6 +11,7 @@ public class Utilities {
     public static void showNotificationAlerter(Activity activity, String text){
         Alerter.create(activity)
                 .setText(text)
+                .setDuration(500)
                 .setIcon(R.drawable.alerter_ic_notifications)
                 .setBackgroundColorInt(Color.parseColor("#EA9453"))
                 .show();

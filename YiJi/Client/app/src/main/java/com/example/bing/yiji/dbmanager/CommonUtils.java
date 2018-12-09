@@ -74,6 +74,15 @@ public class CommonUtils {
         }
     }
 
+    public boolean clearPayment(){
+        try{
+            manager.getDaoSession().deleteAll(Payment.class);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
     public boolean deletePayment(Payment payment){
         try{
             manager.getDaoSession().delete(payment);
