@@ -2,6 +2,7 @@ package com.example.bing.yiji;
 
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.bing.yiji.Adapter.CloudRecordAdapter;
 import com.example.bing.yiji.Model.RecordItem;
-import com.parse.FindCallback;
+import com.parse.DeleteCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -73,6 +78,45 @@ public class DataSyncActivity extends AppCompatActivity {
         CloudRecordAdapter adapter = new CloudRecordAdapter(R.layout.cloud_data_item, data);
         adapter.openLoadAnimation(SLIDEIN_BOTTOM);
         adapter.setEmptyView(R.layout.emty_view, (ViewGroup) rvDataRecordList.getParent());
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                List<Payment> payments =  data.get(position).getContents();
+                new MaterialDialog.Builder(DataSyncActivity.this)
+                        .title(Utilities.convertDateToString(data.get(position).getDate())+"备份")
+                        .items(payments)
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                            }
+                        })
+                        .show();
+            }
+        });
+        adapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, final int position) {
+                new MaterialDialog.Builder(DataSyncActivity.this)
+                        .title("请选择操作")
+                        .positiveText("恢复备份")
+                        .negativeText("删除备份")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                Utilities.showNotificationAlerter(DataSyncActivity.this, "恢复");
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                deleteBackupItem(data.get(position));
+                                Utilities.showNotificationAlerter(DataSyncActivity.this, "删除");
+                            }
+                        })
+                        .show();
+                return false;
+            }
+        });
         rvDataRecordList.setAdapter(adapter);
         rvDataRecordList.addItemDecoration(new SpacesItemDecoration(50));
     }
@@ -90,7 +134,7 @@ public class DataSyncActivity extends AppCompatActivity {
                 List<Payment> payments = new LinkedList<>();
                 JSONArray array = parseObject.getJSONArray("content");
                 for (int i = 0; i < array.length(); i++) {
-                    JSONObject record = (JSONObject) array.get(0);
+                    JSONObject record = (JSONObject) array.get(i);
                     Payment payment = new Payment();
                     payment.setLocation(record.getString("location"));
                     payment.setDescription(record.getString("description"));
@@ -123,14 +167,31 @@ public class DataSyncActivity extends AppCompatActivity {
         localDataOutcome.setText("总支出: "+localOutcome);
     }
 
-
     public void restoreData(View view){
 
     }
 
-    public void backupData(View view){
+    private void deleteBackupItem(final RecordItem recordItem) {
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("UserBackup");
+        query.whereEqualTo("date",recordItem.getDate().getTime());
+        try {
+            ParseObject object =  query.find().get(0);
+            object.deleteInBackground(new DeleteCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e!=null)
+                        e.printStackTrace();
+                }
+            });
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private List<Map<String, String>> packContent(List<Payment> payments) {
         List<Map<String, String>> content = new LinkedList<>();
-        for (Payment p: commonUtils.listAllPayments()){
+        for (Payment p: payments){
             Map<String, String> record = new HashMap<>();
             record.put("type", p.getType());
             record.put("num", p.getNum()+"");
@@ -139,9 +200,13 @@ public class DataSyncActivity extends AppCompatActivity {
             record.put("location", p.getLocation());
             content.add(record);
         }
-        long contentHash = content.toString().hashCode();
+        return content;
+    }
+
+    public void backupData(View view){
+        List<Map<String, String>> content = packContent(commonUtils.listAllPayments());
         ParseQuery<ParseObject> query = ParseQuery.getQuery("UserBackup");
-        query.whereEqualTo("contentHash", contentHash);
+        query.whereEqualTo("content", content.toString());
         try {
             List<ParseObject> objects =  query.find();
             ParseObject object;
@@ -162,7 +227,6 @@ public class DataSyncActivity extends AppCompatActivity {
             object.put("income", localInome);
             object.put("outcome",localOutcome);
             object.put("date",System.currentTimeMillis());
-            object.put("contentHash", content.toString().hashCode());
             object.put("content", content);
             object.saveInBackground(new SaveCallback() {
                 @Override
@@ -179,9 +243,9 @@ public class DataSyncActivity extends AppCompatActivity {
             });
         }
     }
+
     public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
         private int space;
-
         public SpacesItemDecoration(int space) {
             this.space = space;
         }
