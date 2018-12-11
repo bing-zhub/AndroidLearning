@@ -27,8 +27,10 @@ import com.parse.SaveCallback;
 import com.payment.entity.Payment;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -214,9 +216,12 @@ public class DataSyncActivity extends AppCompatActivity {
     }
 
     public void backupData(View view){
-        List<Map<String, String>> content = packContent(commonUtils.listAllPayments());
+        List<Payment> payments = commonUtils.listAllPayments();
+        List<Map<String, String>> content = packContent(payments);
         ParseQuery<ParseObject> query = ParseQuery.getQuery("UserBackup");
-        query.whereEqualTo("content", content.toString());
+
+        query.whereEqualTo("contentHash", content.hashCode());
+
         try {
             List<ParseObject> objects =  query.find();
             ParseObject object;
@@ -238,6 +243,7 @@ public class DataSyncActivity extends AppCompatActivity {
             object.put("outcome",localOutcome);
             object.put("date",System.currentTimeMillis());
             object.put("content", content);
+            object.put("contentHash", content.hashCode());
             object.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {

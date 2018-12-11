@@ -15,10 +15,12 @@ public class ApplicationStarter extends Application {
     public void onCreate() {
         super.onCreate();
 
+        Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE);
         Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
                         .applicationId("8zypnFERYw8X3snyaeWoddq0rCaI5B18hQcl7GsF")
                         .clientKey("jKWXBaoPN1f5zq7kQxUQCiHObLIOBmeHX7jDYdvW")
+//                        .server("http://192.168.123.182:1337/parse/")
                         .server("http://10.0.2.2:1337/parse/") // for debug only! localhost
                         .build()
         );
