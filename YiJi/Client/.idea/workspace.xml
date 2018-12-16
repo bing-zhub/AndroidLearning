@@ -33,16 +33,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataSyncActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataSyncActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/DataSyncActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="226" column="20" lean-forward="false" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
+            <state relative-caret-position="282">
+              <caret line="150" column="29" lean-forward="false" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#restoreBackupItem#0;class#DataSyncActivity#0" expanded="false" />
                 <element signature="method#deleteBackupItem#0;class#DataSyncActivity#0" expanded="false" />
                 <element signature="method#packContent#0;class#DataSyncActivity#0" expanded="false" />
+                <element signature="method#backupData#0;class#DataSyncActivity#0" expanded="false" />
                 <element signature="class#SpacesItemDecoration#0;class#DataSyncActivity#0" expanded="false" />
                 <element signature="e#10906#10907#0" expanded="true" />
                 <element signature="e#10948#10949#0" expanded="true" />
@@ -117,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationStarter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApplicationStarter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/ApplicationStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="23" column="83" lean-forward="false" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
+            <state relative-caret-position="345">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -2555,8 +2556,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_data_sync.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/Utilities.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/DataSyncActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/ApplicationStarter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/DataSyncActivity.java" />
       </list>
     </option>
   </component>
@@ -2987,6 +2988,7 @@
             <element signature="method#restoreBackupItem#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="method#deleteBackupItem#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="method#packContent#0;class#DataSyncActivity#0" expanded="false" />
+            <element signature="method#backupData#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="class#SpacesItemDecoration#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="e#10906#10907#0" expanded="true" />
             <element signature="e#10948#10949#0" expanded="true" />
@@ -3332,27 +3334,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/ApplicationStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/DataSyncActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="226" column="20" lean-forward="false" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
+        <state relative-caret-position="282">
+          <caret line="150" column="29" lean-forward="false" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#restoreBackupItem#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="method#deleteBackupItem#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="method#packContent#0;class#DataSyncActivity#0" expanded="false" />
+            <element signature="method#backupData#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="class#SpacesItemDecoration#0;class#DataSyncActivity#0" expanded="false" />
             <element signature="e#10906#10907#0" expanded="true" />
             <element signature="e#10948#10949#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bing/yiji/ApplicationStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="83" lean-forward="false" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
