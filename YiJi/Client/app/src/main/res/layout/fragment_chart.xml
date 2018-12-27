@@ -3,14 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ChartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="统计"
-        android:textSize="100sp"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/histogram"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <com.example.bing.yiji.Views.HistogramColView
+                android:id="@+id/histogramCol1"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"/>
+            <com.example.bing.yiji.Views.HistogramColView
+                android:id="@+id/histogramCol2"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"/>
+            <com.example.bing.yiji.Views.HistogramColView
+                android:id="@+id/histogramCol3"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"/>
+            <com.example.bing.yiji.Views.HistogramColView
+                android:id="@+id/histogramCol4"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"/>
+            <com.example.bing.yiji.Views.HistogramColView
+                android:id="@+id/histogramCol5"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"/>
+
+
+        </LinearLayout>
+
+        <com.example.bing.yiji.Views.PieChartView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="230dp"
+            android:layout_below="@id/histogram"
+            android:id="@+id/pieChartView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
 
 </FrameLayout>

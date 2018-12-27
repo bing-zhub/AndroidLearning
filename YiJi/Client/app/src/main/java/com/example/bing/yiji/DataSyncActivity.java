@@ -19,7 +19,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.bing.yiji.Adapter.CloudRecordAdapter;
 import com.example.bing.yiji.Model.RecordItem;
 import com.parse.DeleteCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -27,10 +26,8 @@ import com.parse.SaveCallback;
 import com.payment.entity.Payment;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
